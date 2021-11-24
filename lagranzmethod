@@ -1,0 +1,19 @@
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+x = [-3, -1, 0, 2] 
+y =[5, 3, -7, -15] 
+
+def lagranz(xn, yn, x): 
+    z = 0  
+    for i in range(len(yn)): 
+        t = yn[i] 
+        for j in range(len(yn)): 
+            if j != i: 
+                t *= (x - xn[j]) / (xn[i] - xn[j]) 
+        z = z + t  
+    return z  
+X=np.linspace(np.min(x),np.max(x),100) 
+Y=[lagranz(x,y,i) for i in X] 
+plt.plot(x,y,'o',X,Y) 
+plt.show() 
