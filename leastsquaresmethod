@@ -1,0 +1,31 @@
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+def func(x): 
+
+  return x * np.sin(x) 
+
+X = np.array([0.1,0.15,0.2,0.3,0.4,0.5,0.6,0.7,0.47,0.5]) 
+Y = np.array([func(0.1),func(0.15),func(0.2),func(0.3),func(0.4),func(0.5),func(0.6),func(0.7),func(0.47),func(0.5)]) 
+mean_x = np.mean(X) 
+mean_y = np.mean(Y) 
+n = len(X) 
+numer = 0 
+denom = 0 
+for i in range(n): 
+
+  numer += (X[i] - mean_x) * (Y[i] - mean_y) 
+
+  denom += (X[i] - mean_x) ** 2 
+
+  m = numer / denom 
+
+  c = mean_y - (m * mean_x) 
+print("Coefficients") 
+print(m, c) 
+plt.plot(X, m*X + c, 'r', label='Fitted line') 
+plt.scatter(X, Y, c='#ef5423', label='Scatter Plot') 
+plt.xlabel('x') 
+plt.ylabel('y') 
+plt.legend() 
+plt.show() 
