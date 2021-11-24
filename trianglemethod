@@ -1,0 +1,35 @@
+import numpy as np 
+
+import math 
+
+from scipy import integrate 
+
+ 
+
+def func(x): 
+
+  return 1/math.sqrt(x+2.5) 
+
+ 
+
+def rect_rule (f, a, b, n): 
+
+total = 0.0 
+
+dx = (b-a)/n 
+
+for k in range (0, n): 
+
+        	total = total + f((a + (k*dx))) 
+
+return dx*total 
+
+ 
+
+ 
+
+print(rect_rule(func, 1.6, 2.2, 10)) 
+
+v, err = integrate.quad(func, 1.6,2.2) 
+
+print(v) 
