@@ -1,0 +1,24 @@
+def function(x):
+    return 3*x**4-4*x**3+2*x**2-4*x-1
+    
+def d(x):
+   return 12*x**3-12*x**2+4*x-4
+   
+def d2(x):
+   return 36*x**2-24*x+4
+    
+def comb(a, b, esp):
+    if(d(a)*d2(a)>0):
+        a0,b0=a,b
+    else:
+        a0,b0=b,a 
+    xp1=a0
+    xp2=b0
+    
+    while  xp2-xp1>esp:
+        xn=xp1-(d(xp1)*(xp2-xp1))/(d(xp2)-d(xp1))
+        xn2=xp2-d(xp2)/d2(xp2)
+    x=(xp1+xp2)/2
+    print('x:', x)
+
+print(comb(-1/3, 1, 0.001))
