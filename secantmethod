@@ -16,32 +16,6 @@ def secant(a,b):
     while condition:
         m_n = a_n - f(a_n)*(b_n - a_n)/(f(b_n) - f(a_n))
         f_m_n = f(m_n)
-        condition = abs(m_n-b_n)>0.001
-        return f_m_n  
-    
-print(secant(-2, -1))
-
-
-
-
-def f(x):
-    return 2*x**4-2*x**3-4*x**2+6*x+5
-def derivative1(x):
-    return 8*x**3-6*x**2-8*x+6
-def derivative2(x):
-    return 24*x**2-12*x-8
-
-def secant(a,b):
-    condition = True
-    if derivative1(a)*derivative2(a)>0:
-        a_n=a 
-        b_n=b 
-    else:
-        a_n=b 
-        b_n=a 
-    while condition:
-        m_n = a_n - f(a_n)*(b_n - a_n)/(f(b_n) - f(a_n))
-        f_m_n = f(m_n)
         if f(a_n)*f_m_n < 0:
             a_n = a_n
             b_n = m_n
