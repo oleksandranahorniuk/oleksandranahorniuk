@@ -1,0 +1,22 @@
+import math 
+
+def f(x):
+    return 2*x**4-2*x**3-4*x**2+6*x+5 
+def f2(x):
+    return 8*x**3-6*x**2-8*x+6
+def hord(a, b):
+    if f1(a) * f2(a) > 0:
+        x0 = a
+        xi = b
+    else:
+        x0 = b
+        xi = a
+
+    while abs((xi - (((xi - x0) / (f1(xi) - f1(x0))) * f1(xi))) - xi) <= 0.001:
+        xi1 = xi - (((xi - x0) / (f1(xi) - f1(x0))) * f1(xi))
+        if abs(xi1 - xi) <= 0.001:
+            xi = xi1
+  
+    
+    return print('Metod Hord = ', f1(xi))
+hord(-4, 8)
