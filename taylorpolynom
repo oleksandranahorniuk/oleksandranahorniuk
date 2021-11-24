@@ -1,0 +1,28 @@
+from sympy import series, Symbol
+from sympy.functions import sin, cos, exp
+from sympy.plotting import plot
+import matplotlib.pyplot as plt
+def d(x):
+  return x*sin(x)
+
+def d1(x):
+  return sin(x)+x*cos(x)
+
+def d2(x):
+  return 2*cos(x)-x*sin(x)
+
+def d3(x):
+  return x*cos(x)-3*sin(x)
+
+x = Symbol('x')
+def taylor(function, x0):
+   y = 0 
+   y += d(0) + d1(0) * (x - 0) + d2(0)*(((x-0)**2)/2) + d3(0)*(((x-0)**3)/6)
+   return y
+
+p = plot(x*sin(x),taylor(x*sin(x),0),
+         (x,-2,2),legend=True, show=False)
+
+p[0].line_color = 'blue'
+p.title = 'Taylor Series Expansion for Sine'
+p.show()
